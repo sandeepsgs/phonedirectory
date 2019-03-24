@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<script>
+function add() {
+  var x = document.getElementById("add");
+  var n = document.getElementById("name");
+  var p = document.getElementById("phone");
+   var h = document.getElementById("head");
+   var a=document.getElementById("adds");
+var d=document.getElementById("details");
+   if (x.style.display === "none") {
+    x.style.display = "block";
+	n.style.display = "none";
+	p.style.display = "none";
+	h.style.display = "none";
+	a.style.display="none";
+	d.style.display="none";
+	} else {
+    x.style.display = "none";
+	n.style.display = "block";
+	p.style.display = "block";
+	h.style.display="block";
+	a.style.display="block";
+	d.style.display="block";
+  }
+ 
+}
+function deletes(){
+  var list = document.getElementById("mylist");
+list.removeChild(list.childNodes[0]); 
+
+}
+function adddetails(){
+	var v=document.getElementById("na").value;
+	var p=document.getElementById("ph").value;
+
+	
+	var h = document.createElement("H1"); 
+	var t = document.createTextNode(v);
+	h.appendChild(t);
+    document.getElementById("mylist").appendChild(h);
+
+	var h1 = document.createElement("H1");
+	h1.setAttribute("style", "position:absolute;left:700px;");
+	var t1 = document.createTextNode(p);
+	h1.appendChild(t1);
+
+    document.getElementById("mylist").appendChild(h1);
+
+	
+	var btn=document.createElement("INPUT");
+	btn.setAttribute("value","DELETE");
+	btn.setAttribute("type","button");
+	btn.setAttribute("name","deldtn");
+	btn.setAttribute("onclick","deletes();");
+	btn.setAttribute("style", "background-color: red;position:absolute;left:900px;");
+	h.appendChild(btn);
+
+	document.getElementById("mylist").appendChild(h);
+	
+  add();
+}
+function adds()
+{
+var d=document.getElementById("details");
+   if (d.style.display === "block") {
+	d.style.display="none";
+	} else {
+	d.style.display="block";
+  }
+}
+</script>
+<style>
+input[type="button"]{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  outline:none;
+}
+h3{
+font-family:verdana;
+
+}
+#phone{
+position:absolute;
+top:110px;
+left:700px;
+}
+#name
+{
+position:absolute;
+top:110px;
+left:20px;
+}
+header{
+background:black;
+color:white;
+font-family:verdana;
+text-align:center;
+padding:20px;
+}
+#add{
+display:none;
+}
+a{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+#confirmation input{
+border:none;
+outline:none;
+}
+</style>
+</head>
+<body>
+<header id="head">
+PHONE DIRECTORY
+</header>
+<div id="contacts">
+
+<div id="add">
+<a href="" onclick="adds();">back</a>
+<br>
+Name:<br>
+<input type="text" id="na" oninput="n.value=na.value"/>
+<br>
+Phone:<br>
+<input type="number" id="ph" oninput="p.value=ph.value"/>
+<br>
+<br>
+<div id="confirmation">
+name:<input id="n" type="text" readonly><br><br>
+phone:<input id="p" type="number" readonly><br><br>
+<input type="button" value="ADD" onclick="adddetails();" />
+</div>
+
+</div>
+
+<div id="details">
+
+<div id="adds" ><input type="button"value="ADD" onclick="add();" /></div>
+<div id="name">
+<h3>NAME</h3>
+</div>
+<div id="phone">
+<h3>PHONE </h3>
+</div>
+<div id="mylist">
+
+</div>
+</div>
+
+</div>
+</body>
+</html>
